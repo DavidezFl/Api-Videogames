@@ -1,8 +1,14 @@
+
+
 ul.paginate {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	margin-right: 26px;
+	left: -13px;
+	top: 155px;
+	position: fixed;
+	
 }
 .pagination-previous{
 	cursor: pointer;

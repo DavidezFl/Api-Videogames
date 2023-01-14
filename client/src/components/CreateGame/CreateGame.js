@@ -42,9 +42,6 @@ export default function CreateGame() {
 		if (!input.rating){
 			errors.rating = 'Enter one number from 1 to 5 ';
 		}
-		if (!input.genres[0]) {
-			errors.genres = 'Minimun one Genre is required ';
-		}
 		return errors;
 	};
 	/*//////////////////////////////////////////////////////////////////////*/
@@ -107,12 +104,7 @@ export default function CreateGame() {
 			}else{
 				alert(`${e.target.value} is already added`)
 			}
-			setErrors(
-				validate({
-					...input,
-					[e.target.value] : e.target.value
-				})
-			)
+			
 	};
 			
 	const handleDeleteGenres = (e) => {
@@ -275,9 +267,8 @@ export default function CreateGame() {
 							
 						</select>
 						</div>
-						{errors.genres && <span className='errorGenres'>{errors.genres}</span>}
 					</div>
-					{errors.hasOwnProperty('name') || errors.hasOwnProperty('description') || errors.hasOwnProperty('genres') || errors.hasOwnProperty('released') || errors.hasOwnProperty('rating') ? <button className='btnCreateDisabled' type="submit" disabled={true} >Create Game</button> : <button type='submit' className='btnCreate' onClick={(e)=> handleClick(e)}> Create Game</button>}
+					{errors.hasOwnProperty('name') || errors.hasOwnProperty('description') || errors.hasOwnProperty('released') || errors.hasOwnProperty('rating') ? <button className='btnCreateDisabled' type="submit" disabled={true} >Create Game</button> : <button type='submit' className='btnCreate' onClick={(e)=> handleClick(e)}> Create Game</button>}
 				</form>
 				<div className='delete'>	
 						{input.genres?.map((el) => {

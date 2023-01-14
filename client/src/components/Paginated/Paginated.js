@@ -22,7 +22,7 @@ export default function Paginated({videogamesPerPage, allVideogames, setCurrentP
     }
 
     return(
-        <nav>
+        <nav className="NavAll">
             
             <ul className="paginate">
             <button className={`pagination-previous ${currentPage === 1 ? "is-disabled" : ""}`} onClick={onPreviousPage}>Previous</button>
