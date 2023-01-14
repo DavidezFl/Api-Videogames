@@ -32,24 +32,6 @@ const getVideogamesById = async (req, res) =>{
     }
 };
 
-/*const getPlatforms = async (req, res, next) =>{
-    try{
-        const all = await getApiVideogames();
-        const allPlatforms = [];
-        all.map((g) => g.platforms.map((p)=>{
-            if(!allPlatforms.includes(p)){
-                allPlatforms.push(p);
-            }
-        }));
-
-        allPlatforms.length
-        ? res.status(200).json(allPlatforms)
-        : res.status(404).send("Error");
-    }catch (e){
-        next(e);
-    }
-};*/
-
 const createVideogame = async (req, res, next) =>{
     const { name, description, released, genres, rating, platforms, image, createInDb } = req.body;
 

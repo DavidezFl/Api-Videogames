@@ -49,19 +49,19 @@ const getAllVideogames = async ()=>{
 };
 
 const idApi = async (id)=>{
-        const detalle = await axios.get(`https://api.rawg.io/api/games/${id}?key=${API_KEY}`);
+        const detail = await axios.get(`https://api.rawg.io/api/games/${id}?key=${API_KEY}`);
         
-        if(detalle){
-            const vgId = await detalle.data;
+        if(detail){
+            const gameId = await detail.data;
             const Info = {
-                id: vgId.id,
-                name: vgId.name,
-                description: vgId.description_raw,
-                rating: vgId.rating,
-                genres: vgId.genres?.map((e)=>e.name),
-                platforms: vgId.platforms.map((e) => e.platform.name),
-                image: vgId.background_image,
-                released: vgId.released,
+                id: gameId.id,
+                name: gameId.name,
+                description: gameId.description_raw,
+                rating: gameId.rating,
+                genres: gameId.genres?.map((e)=>e.name),
+                platforms: gameId.platforms.map((e) => e.platform.name),
+                image: gameId.background_image,
+                released: gameId.released,
             };
             return Info;
         }else{
@@ -93,11 +93,11 @@ const idDb = async (id) => {
 const gamesById = async (id) =>{
     const dbID = id.includes("-");
     if(dbID){
-        const vgDb = await idDb(id);
-        return vgDb;
+        const gameDb = await idDb(id);
+        return gameDb;
     }else{
-        const vgApi = await idApi(id)
-        return vgApi
+        const gameApi = await idApi(id)
+        return gameApi
     }
 }
 
