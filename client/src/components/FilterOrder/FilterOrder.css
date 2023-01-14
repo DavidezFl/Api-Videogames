@@ -1,0 +1,60 @@
+.selects{
+    margin-top: 37px;
+    margin-left: 30px;
+}
+
+.selectGame{
+    position: relative;
+    font-weight: bold;
+    background: rgb(0, 0, 0);
+    cursor: pointer;
+    width: 170px;
+    font-size: 14px;
+    color: rgb(131, 146, 134);
+    padding: 2px 10px;
+    top: -25px;
+    border-radius: 15px;
+    left: 300px;
+}
+
+.selectGenre{
+    position: relative;
+    font-weight: bold;
+    background: rgb(0, 0, 0);
+    cursor: pointer;
+    width: 180px;
+    font-size: 14px;
+    color: rgb(131, 146, 134);
+    padding: 2px 10px;
+    border-radius: 15px;
+    left: 300px;
+    top: -25px;
+}
+
+.selectName{
+    position: relative;
+    font-weight: bold;
+    background: rgb(0, 0, 0);
+    cursor: pointer;
+    width: 170px;
+    font-size: 14px;
+    color: rgb(131, 146, 134);
+    padding: 2px 10px;
+    border-radius: 15px;
+    left: 300px;
+    top: -25px;
+}
+
+.selectRating{
+    position: relative;
+    font-weight: bold;
+    background: rgb(0, 0, 0);
+    cursor: pointer;
+    width: 180px;
+    font-size: 14px;
+    color: rgb(131, 146, 134);
+    padding: 2px 10px;
+    border-radius: 15px;
+    left: 300px;
+    top: -25px;
+}

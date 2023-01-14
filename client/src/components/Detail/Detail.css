@@ -1,0 +1,47 @@
+.divDetail{
+    height: 649px;
+}
+
+.detail{
+    position: relative;
+    height: 63%;
+    width: 1025px;
+    color: rgb(131, 146, 134);
+    left: 320px;
+    top: -489px;
+    
+  
+    background-image:url("../../777.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+
+    overflow: auto;
+    padding: 40px 10px;
+}
+
+.btnDetail{
+    cursor: pointer;
+    border-radius: 30px;
+    color: rgb(18, 219, 35);
+    background-color: rgb(49, 45, 45);
+}
+.btnDetail:hover{
+    background-color: rgb(255 240 243);
+}
+
+.detailDatos{
+    margin-top: -30px;
+}
+
+.btnDeleteDetail{
+    margin-left: 80px;
+    border-radius: 30px;
+    cursor: pointer;
+    color: red;
+    background-color: rgb(49, 45, 45);
+}
+.btnDeleteDetail:hover{
+    background-color: rgb(255 240 243);
+}

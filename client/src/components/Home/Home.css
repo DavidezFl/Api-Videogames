@@ -1,0 +1,50 @@
+.divHome{
+    background-image:url("../../555.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 657px;
+    background-attachment: fixed;
+    background-position: center center;
+    color: rgb(131, 146, 134);
+}
+
+.divHome h1{
+    margin-left: 55px;
+}
+
+.paginado{
+    position: relative;
+    height: 70%;
+    width: 300px;
+
+    top: -95px;
+    left: 0px;
+    bottom: 1000px;
+
+    color: blue;
+    background-image: url("../../9999.jpg");
+
+    overflow: auto;
+
+    text-align: center;
+    padding: 15px 10px;
+}
+
+
+.btnRefresh{
+    cursor: pointer;
+    border: none;
+    font-size: 17px;
+    border-radius: 15px;
+    margin-bottom: 5px;
+    left: 55px;
+    top: 40px;
+    position: relative;
+    font-weight: bold;
+    background: rgb(49, 45, 45);
+    color: rgb(18, 219, 35);
+    padding: 0px 10px;
+}
+.btnRefresh:hover{
+    background-color: rgb(255 240 243);
+}
