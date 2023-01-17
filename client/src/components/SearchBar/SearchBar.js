@@ -21,9 +21,13 @@ export default function SearchBar({setCurrentPage, setOrden}){
     }
 
     function handleSubmit(e){
-        e.preventDefault();
-        dispatch(getNameVideogame(name));
-        setCurrentPage(1);
+        if(!name){
+            alert("Please enter a name")
+        }else{
+            e.preventDefault();
+            dispatch(getNameVideogame(name));
+            setCurrentPage(1);
+        }
     }
 
     return (
