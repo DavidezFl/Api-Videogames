@@ -11,7 +11,7 @@ const {
   native: false, 
 });*/
 
-const sequelize = new Sequelize(DB_DEPLOY, {
+var sequelize = new Sequelize(DB_DEPLOY, {
   logging: false,
   native: false, 
 });
