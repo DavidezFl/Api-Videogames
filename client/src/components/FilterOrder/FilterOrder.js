@@ -18,30 +18,30 @@ export default function FilterOrder({setCurrentPage, setOrden}){
 
     function handleSortByRating(e){
         e.preventDefault()
-        dispatch(orderByRating(e.target.value))
+        dispatch(orderByRating(e.target.value))// dispara el evento
         setCurrentPage(1)                       
-        setOrden(`Ordenado ${e.target.value}`)
+        setOrden(`Ordenado ${e.target.value}`) // modifico el estado local y renderiza
     }
 
     function handleSortByName(e){
         e.preventDefault()
-        dispatch(orderByName(e.target.value))
+        dispatch(orderByName(e.target.value))// dispara el evento
         setCurrentPage(1)
-        setOrden(`Ordenado ${e.target.value}`)
+        setOrden(`Ordenado ${e.target.value}`)// modifico el estado local y renderiza
     }
 
     function handleFilterGenres(e){
         e.preventDefault()
-        dispatch(filterByGenre(e.target.value))
-        setCurrentPage(1)                           //seteo ( para que no se bug al cambiar de un genre a otro al cambiar de pag.)
-        setOrden(`Ordenado ${e.target.value}`)
+        dispatch(filterByGenre(e.target.value))// dispara el evento
+        setCurrentPage(1) //seteo ( para que no se bug al cambiar de un genre a otro al cambiar de pag.)
+        setOrden(`Ordenado ${e.target.value}`)// modifico el estado local y renderiza
     }
 
     function handleFilterCreated(e){
         e.preventDefault();
-        dispatch(filterCreated(e.target.value));
+        dispatch(filterCreated(e.target.value));// dispara el evento
         setCurrentPage(1);
-        setOrden(`Ordenado ${e.target.value}`)
+        setOrden(`Ordenado ${e.target.value}`)// modifico el estado local y renderiza
     }
 
     

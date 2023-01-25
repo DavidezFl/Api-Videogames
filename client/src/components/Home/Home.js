@@ -21,12 +21,13 @@ export default function Home(){
 
     const [/*orden*/, setOrden ] = useState("");
 
-    const [currentPage, setCurrentPage] = useState(1);
-    const [videogamesPerPage, /*setRecipesPerPage*/] = useState(15);
-    const indexOfLastVideogame = currentPage * videogamesPerPage;
-    const indexOfFirstVideogame = indexOfLastVideogame - videogamesPerPage;
+    const [currentPage, setCurrentPage] = useState(1);// pagina actual mas un seteo de la pagina actual  // Guardo en Estado local
+    const [videogamesPerPage, /*setRecipesPerPage*/] = useState(15);// videogames por pagina más seteo videogames por pag // Guardo en Estado local
+    const indexOfLastVideogame = currentPage * videogamesPerPage;// 15   // indice del último videogame
+    const indexOfFirstVideogame = indexOfLastVideogame - videogamesPerPage;// 0   // indice del primer videogame
     const currentVideogames = allVideogames.slice(indexOfFirstVideogame, indexOfLastVideogame);
-
+    // el slice agarra el array y toma el indice del primer videogame y del ultimo videogame..
+    //devuelve una copia de una parte del array dentro de un nuevo array empezando por inicio hasta fin (fin no incluido)
     useEffect(()=>{
         dispatch(getVideogames());
     },[dispatch]);
@@ -36,7 +37,7 @@ export default function Home(){
     },[dispatch]);
 
     function handleClick(e){
-        e.preventDefault();
+        e.preventDefault();// para que no se rompa.(bug) // evitar que suceda la accion predeterminada.
         dispatch(getVideogames());
     }
 
@@ -68,8 +69,8 @@ export default function Home(){
                     
 
                     <Paginated 
-                        videogamesPerPage={videogamesPerPage}
-                        allVideogames={allVideogames.length}
+                        videogamesPerPage={videogamesPerPage} //paso el estado
+                        allVideogames={allVideogames.length}// necesito un valor númerico
                         currentPage={currentPage}
                         setCurrentPage={setCurrentPage}
                     />
@@ -77,7 +78,7 @@ export default function Home(){
 
                     <div>
                         {currentVideogames?.map((el)=>{
-                                return(
+                                return(// redenrizo card
                                 <div>
                                     
                                     <Link onClick={(e) => handleCard(e, el.id)}>

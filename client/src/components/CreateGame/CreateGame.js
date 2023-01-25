@@ -8,18 +8,18 @@ import "./CreateGame.css";
 /*//////////////////////////////////////////////////////////////////////*/
 
 export default function CreateGame() {
-	const dispatch = useDispatch();
+	const dispatch = useDispatch();//Para despachar mis actions
 	const history = useHistory();
-	const genres = useSelector((state) => state.genres);
+	const genres = useSelector((state) => state.genres);//Traigo lo que está en mi estado genres
 	const platforms = ["PC", "iOS", "Android", "macOS", "PlayStation 4", "PlayStation 5", "XBOX", "PS Vita", "Nintendo", "Desconocido/////////"]
 	/*//////////////////////////////////////////////////////////////////////*/
-	useEffect(() => {
-		dispatch(getGenres());
-	}, [dispatch]);
+	useEffect(() => {    //Traigo los genres cuando el componente se monta.
+		dispatch(getGenres());//Despacho mi action
+	}, [dispatch]); //Para que no se genere un loop infinito de llamados
 	/*//////////////////////////////////////////////////////////////////////*/
 	//Errors
 	const [errors, setErrors] = useState({});
-	
+	// mi estado para las validaciones ( formulario controlado)
 	const validate = (input) => {
 		let testValidate = /^[A-Z][a-z][^$()!¡@#/=¿{}?*%&|<>#]*$/;
 		let errors = {};
@@ -46,13 +46,13 @@ export default function CreateGame() {
 	};
 	/*//////////////////////////////////////////////////////////////////////*/
 	const handleChange = (e) => {
-		setInput({
-			...input,
+		setInput({ // seteamos mi estado input
+			...input,// va guardando a medida que escribes
 			[e.target.name]: e.target.value,
 		});
 		setErrors(
 			validate({
-				...input,
+				...input,// me copio todo lo que venga del formulario, en caso que alguno no cumpla con mis validaciones se advertirá
 				[e.target.name]: e.target.value,
 			})
 			);
@@ -61,19 +61,15 @@ export default function CreateGame() {
 		
 	/*//////////////////////////////////////////////////////////////////////*/
 	//Platforms
-	/*function handleCheckPlatforms(e){
+	/*function handleCheckLike(e){
 		if(e.target.checked){  //si el input está check
 			setInput({
 					...input,
-					platforms: input.platforms.concat(e.target.value),
+					[e.target.name]: e.target.value,
 			})
-            setErrors(
-				validate({
-					...input,
-                    [e.target.name] : e.target.value
-                })
-			)
+			console.log(input)
 		}
+		
 	};*/
 	
 	const handleSelectPlatforms = (el) =>{
@@ -109,8 +105,9 @@ export default function CreateGame() {
 			
 	const handleDeleteGenres = (e) => {
 		setInput({
-			...input,
-			genres: input.genres.filter((param) => param !== e),
+			//Me sirve para borrar algun tipo de genre que haya elegido, me crea un nuevo array.
+			...input,//traigo el input anterior   
+			genres: input.genres.filter((param) => param !== e),// filtro genre por todo lo que no sea ese elemento.(me devuelve el estado nuevo sin el elemento que clickee)
 		});
 	};
 	/*//////////////////////////////////////////////////////////////////////*/
@@ -118,6 +115,7 @@ export default function CreateGame() {
 	const [input, setInput] = useState({
 			name: '',
 			description: '',
+			//like:[],
 			image: '',
 			released: '',
 			rating: "",
@@ -126,11 +124,11 @@ export default function CreateGame() {
 	});
 
 	const handleSubmit = (e) => {
-		e.preventDefault();
+		e.preventDefault(); //Para que no se rompa.(bug)//evitar que suceda la acción predeterminada.
 		dispatch(postVideogame(input));
 		alert("Videogame created");
 		
-		setInput({
+		setInput({ // seteo mi estado input
 			name:"",
 			description:"",
 			released:"",
@@ -176,6 +174,14 @@ export default function CreateGame() {
 						/>
 						{errors.name && <p className='errorName'>{errors.name}</p>}
 					</div>
+					{/*<div>
+						<input 
+							type="checkbox"
+							value={input.like}
+							name="like"
+							onChange={(e) => handleCheckLike(e)}
+						/>
+					</div>*/}
 					<div>
 						<textarea
 							className="formInputDescription"
@@ -267,6 +273,7 @@ export default function CreateGame() {
 							
 						</select>
 						</div>
+						
 					</div>
 					{errors.hasOwnProperty('name') || errors.hasOwnProperty('description') || errors.hasOwnProperty('released') || errors.hasOwnProperty('rating') ? <button className='btnCreateDisabled' type="submit" disabled={true} >Create Game</button> : <button type='submit' className='btnCreate' onClick={(e)=> handleClick(e)}> Create Game</button>}
 				</form>

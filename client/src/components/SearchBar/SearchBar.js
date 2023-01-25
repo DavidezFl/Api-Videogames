@@ -21,12 +21,12 @@ export default function SearchBar({setCurrentPage, setOrden}){
     }
 
     function handleSubmit(e){
-        if(!name){
-            alert("Please enter a name")
-        }else{
+        if(name.length){
             e.preventDefault();
             dispatch(getNameVideogame(name));
             setCurrentPage(1);
+        }else{
+            alert("Please enter a name")
         }
     }
 
