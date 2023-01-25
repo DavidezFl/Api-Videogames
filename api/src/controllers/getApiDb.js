@@ -22,6 +22,22 @@ const getAllVideogames = async ()=>{
             genres: v.genres.map(e => e.name)
         }
     });
+
+
+    /*
+    const apiInfo = await Promise.all(apiTotal)
+    .then((videogame) =>{
+        let gameArray = videogame.map((e) =>{
+            return{
+                id:,
+                name:,
+                rating:,
+
+            }
+        })
+        return gameArray
+    })
+    */
     
     let gameDb = await Videogame.findAll({
         //SELECT * FROM Videogame

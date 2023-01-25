@@ -9,8 +9,8 @@ const getGenre = async (req, res) =>{
     const apiGenres = response.data.results.map(el => el.name);
 
     apiGenres.map(element =>{
-        Genre.findOrCreate({
-            where: { name: element }
+        Genre.findOrCreate({        //Busco y si no está lo creo
+            where: { name: element } // Guardo
         })
     });
     const allGenres = await Genre.findAll()
