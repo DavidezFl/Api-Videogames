@@ -11,7 +11,7 @@ const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}
   native: false, 
 });
 
-/*var sequelize = new Sequelize(DB_DEPLOY, {
+/*const sequelize = new Sequelize(DB_DEPLOY, {
   logging: false,
   native: false, 
 });*/
