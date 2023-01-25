@@ -25,7 +25,7 @@ export const ORDER_BY_RATING = "ORDER_BY_RATING";
 export const getVideogames = () =>{
     return function(dispatch){
         axios
-        .get("http://localhost:3001/videogames")
+        .get("/videogames")
         .then(response => response.data)
         .then(data => dispatch({type:GET_VIDEOGAMES, payload: data}))
         .catch((error) => console.log(error))
@@ -35,7 +35,7 @@ export const getVideogames = () =>{
 export const getGenres = () =>{
     return function(dispatch){
         axios
-        .get("http://localhost:3001/genres")
+        .get("/genres")
         .then(response => response.data)
         .then(data => dispatch({type: GET_GENRES, payload: data}))
         .catch((error)=> console.log(error))
@@ -45,7 +45,7 @@ export const getGenres = () =>{
 export function getDetail(id){
     return async function (dispatch){
         try{
-            var json = await axios.get(`http://localhost:3001/videogames/` + id);
+            var json = await axios.get(`/videogames/` + id);
             return dispatch({
                 type: GET_DETAILS,
                 payload: json.data
@@ -59,7 +59,7 @@ export function getDetail(id){
 export function getNameVideogame(name){
     return async function(dispatch){
         try{
-            var json = await axios.get("http://localhost:3001/videogames?name=" + name);
+            var json = await axios.get("/videogames?name=" + name);
             return dispatch({
                 type: GET_NAME_VIDEOGAME,
                 payload: json.data
@@ -73,21 +73,21 @@ export function getNameVideogame(name){
 //Post, Put, Delete
 export function postVideogame(payload){
     return async function(){
-        const json = axios.post("http://localhost:3001/videogames", payload);
+        const json = axios.post("/videogames", payload);
         return json;
     };
 }
 
 /*export function putVideogame(id, payload){
     return async function(dispatch){
-                var json = await axios.put(`http://localhost:3001/videogames/${id}`, payload)
+                var json = await axios.put(`/videogames/${id}`, payload)
                 return json
     }
 }*/
 
 export function deleteVideogame(id){
         return async function(dispatch){
-            var json = await axios.delete(`http://localhost:3001/videogames/${id}`)
+            var json = await axios.delete(`/videogames/${id}`)
             return dispatch({
                 type: DELETE_VIDEOGAME,
                 payload: json.data
