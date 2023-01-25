@@ -7,7 +7,7 @@ import CreateGame from './components/CreateGame/CreateGame';
 import NavBar from './components/NavBar/NavBar';
 import Detail from "./components/Detail/Detail";
 import axios from "axios";
-axios.defaults.baseURL = "http://localhost:3001/";
+axios.defaults.baseURL = "https://api-videogames-production-41e2.up.railway.app/";
 
 function App() {
   return (
